@@ -19,9 +19,37 @@ namespace FifthLab
     /// </summary>
     public partial class AccountantWindow : Window
     {
+        private Type currentPageType;
+
         public AccountantWindow()
         {
             InitializeComponent();
+            NavigateToPage(typeof(FinancialStatementsPage));
         }
+
+        private void NavigateToPage(Type pageType)
+        {
+            if (currentPageType != pageType)
+            {
+                Pages.NavigationService.Navigate((Page)Activator.CreateInstance(pageType));
+                currentPageType = pageType;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(typeof(FinancialStatementsPage));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(typeof(PaymentTypesPage));
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(typeof(DiscountsPage));
+        }
+
     }
 }

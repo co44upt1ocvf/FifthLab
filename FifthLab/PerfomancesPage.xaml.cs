@@ -50,7 +50,7 @@ namespace FifthLab
         {
             if (string.IsNullOrWhiteSpace(Title.Text) || string.IsNullOrWhiteSpace(Time.Text) || string.IsNullOrWhiteSpace(Cost.Text))
             {
-                MessageBox.Show("Please enter first and last names.");
+                MessageBox.Show("Please enter title, time and cost.");
                 return;
             }
 
@@ -93,7 +93,7 @@ namespace FifthLab
             {
                 if (string.IsNullOrWhiteSpace(Title.Text) || string.IsNullOrWhiteSpace(Time.Text) || string.IsNullOrWhiteSpace(Cost.Text))
                 {
-                    MessageBox.Show("Please enter first and last names.");
+                    MessageBox.Show("Please enter title, time and cost.");
                     return;
                 }
 
@@ -117,7 +117,7 @@ namespace FifthLab
                 }
                 else
                 {
-                    MessageBox.Show("Invalid input.");
+                    MessageBox.Show("Invalid cost input.");
                     return;
                 }
 
@@ -130,7 +130,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Select an employee to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select an perfomance to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -146,7 +146,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Select an employee to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select an perfomance to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

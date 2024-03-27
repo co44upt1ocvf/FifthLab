@@ -79,6 +79,9 @@
     <Compile Include="Discounts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DiscountsPage.xaml.cs">
+      <DependentUpon>DiscountsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmloyeesPage.xaml.cs">
       <DependentUpon>EmloyeesPage.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,9 @@
     </Compile>
     <Compile Include="FinancialStatements.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialStatementsPage.xaml.cs">
+      <DependentUpon>FinancialStatementsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="InputValidator.cs" />
     <Compile Include="LoginInformationPage.xaml.cs">
@@ -118,6 +124,9 @@
     </Compile>
     <Compile Include="PaymentTypes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTypesPage.xaml.cs">
+      <DependentUpon>PaymentTypesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Perfomances.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -158,11 +167,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DiscountsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EmloyeesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EmloyeeWorkSchedulePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinancialStatementsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,6 +199,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PaymentTypesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerfomancesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

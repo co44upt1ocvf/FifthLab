@@ -44,7 +44,7 @@ namespace FifthLab
         {
             if (string.IsNullOrWhiteSpace(Login.Text) || string.IsNullOrWhiteSpace(Password.Password))
             {
-                MessageBox.Show("Please enter first and last names.");
+                MessageBox.Show("Please enter login and pass.");
                 return;
             }
 
@@ -59,7 +59,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Please select a schedule.");
+                MessageBox.Show("Please select a role.");
                 return;
             }
 
@@ -77,7 +77,7 @@ namespace FifthLab
             {
                 if (string.IsNullOrWhiteSpace(Login.Text) || string.IsNullOrWhiteSpace(Password.Password))
                 {
-                    MessageBox.Show("Please enter first and last names.");
+                    MessageBox.Show("Please enter login and pass.");
                     return;
                 }
 
@@ -103,7 +103,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Select an employee to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select an log to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -119,7 +119,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Select an employee to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select an log to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

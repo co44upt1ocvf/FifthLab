@@ -75,7 +75,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Select an event to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select an role to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -90,7 +90,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Select an event to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select an role to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

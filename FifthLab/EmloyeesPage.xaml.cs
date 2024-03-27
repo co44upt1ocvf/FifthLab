@@ -75,7 +75,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Please select a schedule.");
+                MessageBox.Show("Please select a role.");
                 return;
             }
 
