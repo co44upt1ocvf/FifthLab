@@ -19,9 +19,41 @@ namespace FifthLab
     /// </summary>
     public partial class CashierWindow : Window
     {
+        private Type currentPageType;
+
         public CashierWindow()
         {
             InitializeComponent();
+            NavigateToPage(typeof(CustomersPage));
+        }
+
+        private void NavigateToPage(Type pageType)
+        {
+            if (currentPageType != pageType)
+            {
+                Pages.NavigationService.Navigate((Page)Activator.CreateInstance(pageType));
+                currentPageType = pageType;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(typeof(CustomersPage));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(typeof(TicketsPage));
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(typeof(ReservesPage));
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(typeof(SalesPage));
         }
     }
 }

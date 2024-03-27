@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4c507d253a1d4415906736a5d438d4aa" Name="Diagram1" ZoomLevel="215">
+      <Diagram DiagramId="4c507d253a1d4415906736a5d438d4aa" Name="Diagram1" ZoomLevel="400">
         <EntityTypeShape EntityType="CircusModel.Customers" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CircusModel.Discounts" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CircusModel.EmloyeeWorkSchedule" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />

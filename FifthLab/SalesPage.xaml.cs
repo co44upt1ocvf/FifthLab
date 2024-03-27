@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace FifthLab
 {
     /// <summary>
-    /// Логика взаимодействия для FinancialStatementsPage.xaml
+    /// Логика взаимодействия для SalesPage.xaml
     /// </summary>
-    public partial class FinancialStatementsPage : Page
+    public partial class SalesPage : Page
     {
-        private CircusEntities context = new CircusEntities();
-
-        public FinancialStatementsPage()
+        public SalesPage()
         {
             InitializeComponent();
-
-            
         }
     }
 }

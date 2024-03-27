@@ -57,6 +57,9 @@ namespace FifthLab
                         CashierWindow cashierWindow = new CashierWindow();
                         cashierWindow.Show();
                         break;
+                    default:
+                        MessageBox.Show("There is no window for this role...");
+                        break;
                 }
             }
             else

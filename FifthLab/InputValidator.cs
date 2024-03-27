@@ -45,5 +45,11 @@ namespace FifthLab
             string pattern = @"^([01][0-9]|2[0-3]):[0-5][0-9]\s*-\s*([01][0-9]|2[0-3]):[0-5][0-9]$";
             return Regex.IsMatch(input, pattern);
         }
+
+        public static bool IsValidEmail(string email)
+        {
+            string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+            return Regex.IsMatch(email, pattern);
+        }
     }
 }

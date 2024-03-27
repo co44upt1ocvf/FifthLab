@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="CashierWindow" Height="450" Width="800">
     <Grid>
-        <Button/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Content="Customers" FontSize="15" Click="Button_Click"/>
+            <Button Content="Tickets" Grid.Column="1" FontSize="15" Click="Button_Click_1"/>
+            <Button Content="Reserves" Grid.Column="2" FontSize="15" Click="Button_Click_2"/>
+            <Button Content="Sales" Grid.Column="3" FontSize="15" Click="Button_Click_3"/>
+        </Grid>
+        <Frame x:Name="Pages" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

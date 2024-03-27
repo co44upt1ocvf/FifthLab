@@ -9,6 +9,37 @@
       Title="FinancialStatementsPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" Background="Gold">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Content="Add" FontSize="15"/>
+                <Button Content="Change" Grid.Column="1" FontSize="15"/>
+                <Button Content="Delete" Grid.Column="2" FontSize="15"/>
+            </Grid>
+            <TextBlock Text="Role name:" FontSize="15"/>
+            <TextBox x:Name="RoleName" Grid.Row="1" VerticalAlignment="Top" FontSize="15"/>
+        </Grid>
+        <DataGrid x:Name="Roles" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Financial_ID}" Header="ID"/>
+                <DataGridTextColumn Binding="{Binding Employees.Firstname}" Header="Firstname employee"/>
+                <DataGridTextColumn Binding="{Binding Employees.Lastname}" Header="Lastname employee"/>
+                <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity"/>
+                <DataGridTextColumn Binding="{Binding Revenue}" Header="Revenue"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
