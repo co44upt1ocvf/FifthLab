@@ -1,0 +1,915 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище CircusModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middlename" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Discounts">
+          <Key>
+            <PropertyRef Name="Discount_ID" />
+          </Key>
+          <Property Name="Discount_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="Benefit_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="EmloyeeWorkSchedule">
+          <Key>
+            <PropertyRef Name="Schedule_ID" />
+          </Key>
+          <Property Name="Schedule_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkDate" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="WorkTime" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middlename" Type="varchar" MaxLength="50" />
+          <Property Name="Schedule_ID" Type="int" />
+          <Property Name="Role_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="FinancialStatements">
+          <Key>
+            <PropertyRef Name="Financial_ID" />
+          </Key>
+          <Property Name="Financial_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_ID" Type="int" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Revenue" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Sale_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="LogPass">
+          <Key>
+            <PropertyRef Name="Log_ID" />
+          </Key>
+          <Property Name="Log_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginIN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordIN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="PaymentTypes">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfomances">
+          <Key>
+            <PropertyRef Name="Perfomance_ID" />
+          </Key>
+          <Property Name="Perfomance_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EventDate" Type="date" Nullable="false" />
+          <Property Name="EventTime" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reserves">
+          <Key>
+            <PropertyRef Name="Reserve_ID" />
+          </Key>
+          <Property Name="Reserve_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ticket_ID" Type="int" />
+          <Property Name="Customer_ID" Type="int" />
+          <Property Name="ReserveDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+          </Key>
+          <Property Name="Role_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="Sale_ID" />
+          </Key>
+          <Property Name="Sale_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_ID" Type="int" />
+          <Property Name="Ticket_ID" Type="int" />
+          <Property Name="Customer_ID" Type="int" />
+          <Property Name="SaleDate" Type="date" Nullable="false" />
+          <Property Name="Discount_ID" Type="int" />
+          <Property Name="Payment_ID" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="Ticket_ID" />
+          </Key>
+          <Property Name="Ticket_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceNumder" Type="int" Nullable="false" />
+          <Property Name="TicketStatus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Perfomance_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TypesOfBenefits">
+          <Key>
+            <PropertyRef Name="Benefit_ID" />
+          </Key>
+          <Property Name="Benefit_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Discounts__Benef__45F365D3">
+          <End Role="TypesOfBenefits" Type="Self.TypesOfBenefits" Multiplicity="0..1" />
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfBenefits">
+              <PropertyRef Name="Benefit_ID" />
+            </Principal>
+            <Dependent Role="Discounts">
+              <PropertyRef Name="Benefit_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Role___4BAC3F29">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Sched__4CA06362">
+          <End Role="EmloyeeWorkSchedule" Type="Self.EmloyeeWorkSchedule" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmloyeeWorkSchedule">
+              <PropertyRef Name="Schedule_ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Schedule_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Financial__Emplo__59FA5E80">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="FinancialStatements" Type="Self.FinancialStatements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="FinancialStatements">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Financial__Sale___5AEE82B9">
+          <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
+          <End Role="FinancialStatements" Type="Self.FinancialStatements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sales">
+              <PropertyRef Name="Sale_ID" />
+            </Principal>
+            <Dependent Role="FinancialStatements">
+              <PropertyRef Name="Sale_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LogPass__Role_ID__398D8EEE">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="LogPass" Type="Self.LogPass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="LogPass">
+              <PropertyRef Name="Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reserves__Custom__5070F446">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="Reserves">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reserves__Ticket__4F7CD00D">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="Ticket_ID" />
+            </Principal>
+            <Dependent Role="Reserves">
+              <PropertyRef Name="Ticket_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Customer___5535A963">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Discount___571DF1D5">
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discounts">
+              <PropertyRef Name="Discount_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Discount_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Employee___534D60F1">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Payment_I__5629CD9C">
+          <End Role="PaymentTypes" Type="Self.PaymentTypes" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentTypes">
+              <PropertyRef Name="Payment_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Payment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Ticket_ID__5441852A">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="Ticket_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Ticket_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Perfoma__48CFD27E">
+          <End Role="Perfomances" Type="Self.Perfomances" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfomances">
+              <PropertyRef Name="Perfomance_ID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="Perfomance_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище CircusModelContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmloyeeWorkSchedule" EntityType="Self.EmloyeeWorkSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinancialStatements" EntityType="Self.FinancialStatements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogPass" EntityType="Self.LogPass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentTypes" EntityType="Self.PaymentTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfomances" EntityType="Self.Perfomances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reserves" EntityType="Self.Reserves" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesOfBenefits" EntityType="Self.TypesOfBenefits" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Discounts__Benef__45F365D3" Association="Self.FK__Discounts__Benef__45F365D3">
+            <End Role="TypesOfBenefits" EntitySet="TypesOfBenefits" />
+            <End Role="Discounts" EntitySet="Discounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Role___4BAC3F29" Association="Self.FK__Employees__Role___4BAC3F29">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Sched__4CA06362" Association="Self.FK__Employees__Sched__4CA06362">
+            <End Role="EmloyeeWorkSchedule" EntitySet="EmloyeeWorkSchedule" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Financial__Emplo__59FA5E80" Association="Self.FK__Financial__Emplo__59FA5E80">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="FinancialStatements" EntitySet="FinancialStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Financial__Sale___5AEE82B9" Association="Self.FK__Financial__Sale___5AEE82B9">
+            <End Role="Sales" EntitySet="Sales" />
+            <End Role="FinancialStatements" EntitySet="FinancialStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LogPass__Role_ID__398D8EEE" Association="Self.FK__LogPass__Role_ID__398D8EEE">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="LogPass" EntitySet="LogPass" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reserves__Custom__5070F446" Association="Self.FK__Reserves__Custom__5070F446">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Reserves" EntitySet="Reserves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reserves__Ticket__4F7CD00D" Association="Self.FK__Reserves__Ticket__4F7CD00D">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Reserves" EntitySet="Reserves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Customer___5535A963" Association="Self.FK__Sales__Customer___5535A963">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Discount___571DF1D5" Association="Self.FK__Sales__Discount___571DF1D5">
+            <End Role="Discounts" EntitySet="Discounts" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Employee___534D60F1" Association="Self.FK__Sales__Employee___534D60F1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Payment_I__5629CD9C" Association="Self.FK__Sales__Payment_I__5629CD9C">
+            <End Role="PaymentTypes" EntitySet="PaymentTypes" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Ticket_ID__5441852A" Association="Self.FK__Sales__Ticket_ID__5441852A">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Perfoma__48CFD27E" Association="Self.FK__Tickets__Perfoma__48CFD27E">
+            <End Role="Perfomances" EntitySet="Perfomances" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CircusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Reserves" Relationship="Self.FK__Reserves__Custom__5070F446" FromRole="Customers" ToRole="Reserves" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__Customer___5535A963" FromRole="Customers" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="Discounts">
+          <Key>
+            <PropertyRef Name="Discount_ID" />
+          </Key>
+          <Property Name="Discount_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="Benefit_ID" Type="Int32" />
+          <NavigationProperty Name="TypesOfBenefits" Relationship="Self.FK__Discounts__Benef__45F365D3" FromRole="Discounts" ToRole="TypesOfBenefits" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__Discount___571DF1D5" FromRole="Discounts" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="EmloyeeWorkSchedule">
+          <Key>
+            <PropertyRef Name="Schedule_ID" />
+          </Key>
+          <Property Name="Schedule_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WorkTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Sched__4CA06362" FromRole="EmloyeeWorkSchedule" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Schedule_ID" Type="Int32" />
+          <Property Name="Role_ID" Type="Int32" />
+          <NavigationProperty Name="EmloyeeWorkSchedule" Relationship="Self.FK__Employees__Sched__4CA06362" FromRole="Employees" ToRole="EmloyeeWorkSchedule" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Employees__Role___4BAC3F29" FromRole="Employees" ToRole="Roles" />
+          <NavigationProperty Name="FinancialStatements" Relationship="Self.FK__Financial__Emplo__59FA5E80" FromRole="Employees" ToRole="FinancialStatements" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__Employee___534D60F1" FromRole="Employees" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="FinancialStatements">
+          <Key>
+            <PropertyRef Name="Financial_ID" />
+          </Key>
+          <Property Name="Financial_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_ID" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Revenue" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Sale_ID" Type="Int32" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Financial__Emplo__59FA5E80" FromRole="FinancialStatements" ToRole="Employees" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Financial__Sale___5AEE82B9" FromRole="FinancialStatements" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="LogPass">
+          <Key>
+            <PropertyRef Name="Log_ID" />
+          </Key>
+          <Property Name="Log_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role_ID" Type="Int32" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__LogPass__Role_ID__398D8EEE" FromRole="LogPass" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="PaymentTypes">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__Payment_I__5629CD9C" FromRole="PaymentTypes" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="Perfomances">
+          <Key>
+            <PropertyRef Name="Perfomance_ID" />
+          </Key>
+          <Property Name="Perfomance_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EventDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EventTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__Perfoma__48CFD27E" FromRole="Perfomances" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Reserves">
+          <Key>
+            <PropertyRef Name="Reserve_ID" />
+          </Key>
+          <Property Name="Reserve_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ticket_ID" Type="Int32" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="ReserveDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Reserves__Custom__5070F446" FromRole="Reserves" ToRole="Customers" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Reserves__Ticket__4F7CD00D" FromRole="Reserves" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+          </Key>
+          <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Role___4BAC3F29" FromRole="Roles" ToRole="Employees" />
+          <NavigationProperty Name="LogPass" Relationship="Self.FK__LogPass__Role_ID__398D8EEE" FromRole="Roles" ToRole="LogPass" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="Sale_ID" />
+          </Key>
+          <Property Name="Sale_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_ID" Type="Int32" />
+          <Property Name="Ticket_ID" Type="Int32" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Discount_ID" Type="Int32" />
+          <Property Name="Payment_ID" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Sales__Customer___5535A963" FromRole="Sales" ToRole="Customers" />
+          <NavigationProperty Name="Discounts" Relationship="Self.FK__Sales__Discount___571DF1D5" FromRole="Sales" ToRole="Discounts" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Sales__Employee___534D60F1" FromRole="Sales" ToRole="Employees" />
+          <NavigationProperty Name="FinancialStatements" Relationship="Self.FK__Financial__Sale___5AEE82B9" FromRole="Sales" ToRole="FinancialStatements" />
+          <NavigationProperty Name="PaymentTypes" Relationship="Self.FK__Sales__Payment_I__5629CD9C" FromRole="Sales" ToRole="PaymentTypes" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Sales__Ticket_ID__5441852A" FromRole="Sales" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="Ticket_ID" />
+          </Key>
+          <Property Name="Ticket_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceNumder" Type="Int32" Nullable="false" />
+          <Property Name="TicketStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Perfomance_ID" Type="Int32" />
+          <NavigationProperty Name="Perfomances" Relationship="Self.FK__Tickets__Perfoma__48CFD27E" FromRole="Tickets" ToRole="Perfomances" />
+          <NavigationProperty Name="Reserves" Relationship="Self.FK__Reserves__Ticket__4F7CD00D" FromRole="Tickets" ToRole="Reserves" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__Ticket_ID__5441852A" FromRole="Tickets" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="TypesOfBenefits">
+          <Key>
+            <PropertyRef Name="Benefit_ID" />
+          </Key>
+          <Property Name="Benefit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Discounts" Relationship="Self.FK__Discounts__Benef__45F365D3" FromRole="TypesOfBenefits" ToRole="Discounts" />
+        </EntityType>
+        <Association Name="FK__Reserves__Custom__5070F446">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="Reserves">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Customer___5535A963">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Discounts__Benef__45F365D3">
+          <End Role="TypesOfBenefits" Type="Self.TypesOfBenefits" Multiplicity="0..1" />
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfBenefits">
+              <PropertyRef Name="Benefit_ID" />
+            </Principal>
+            <Dependent Role="Discounts">
+              <PropertyRef Name="Benefit_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Discount___571DF1D5">
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discounts">
+              <PropertyRef Name="Discount_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Discount_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Sched__4CA06362">
+          <End Role="EmloyeeWorkSchedule" Type="Self.EmloyeeWorkSchedule" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmloyeeWorkSchedule">
+              <PropertyRef Name="Schedule_ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Schedule_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Role___4BAC3F29">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Financial__Emplo__59FA5E80">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="FinancialStatements" Type="Self.FinancialStatements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="FinancialStatements">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Employee___534D60F1">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Financial__Sale___5AEE82B9">
+          <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
+          <End Role="FinancialStatements" Type="Self.FinancialStatements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sales">
+              <PropertyRef Name="Sale_ID" />
+            </Principal>
+            <Dependent Role="FinancialStatements">
+              <PropertyRef Name="Sale_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LogPass__Role_ID__398D8EEE">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="LogPass" Type="Self.LogPass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="LogPass">
+              <PropertyRef Name="Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Payment_I__5629CD9C">
+          <End Role="PaymentTypes" Type="Self.PaymentTypes" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentTypes">
+              <PropertyRef Name="Payment_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Payment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Perfoma__48CFD27E">
+          <End Role="Perfomances" Type="Self.Perfomances" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfomances">
+              <PropertyRef Name="Perfomance_ID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="Perfomance_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reserves__Ticket__4F7CD00D">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="Ticket_ID" />
+            </Principal>
+            <Dependent Role="Reserves">
+              <PropertyRef Name="Ticket_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__Ticket_ID__5441852A">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="Ticket_ID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Ticket_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CircusEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="Discounts" EntityType="Self.Discounts" />
+          <EntitySet Name="EmloyeeWorkSchedule" EntityType="Self.EmloyeeWorkSchedule" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="FinancialStatements" EntityType="Self.FinancialStatements" />
+          <EntitySet Name="LogPass" EntityType="Self.LogPass" />
+          <EntitySet Name="PaymentTypes" EntityType="Self.PaymentTypes" />
+          <EntitySet Name="Perfomances" EntityType="Self.Perfomances" />
+          <EntitySet Name="Reserves" EntityType="Self.Reserves" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" />
+          <EntitySet Name="TypesOfBenefits" EntityType="Self.TypesOfBenefits" />
+          <AssociationSet Name="FK__Reserves__Custom__5070F446" Association="Self.FK__Reserves__Custom__5070F446">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Reserves" EntitySet="Reserves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Customer___5535A963" Association="Self.FK__Sales__Customer___5535A963">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Discounts__Benef__45F365D3" Association="Self.FK__Discounts__Benef__45F365D3">
+            <End Role="TypesOfBenefits" EntitySet="TypesOfBenefits" />
+            <End Role="Discounts" EntitySet="Discounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Discount___571DF1D5" Association="Self.FK__Sales__Discount___571DF1D5">
+            <End Role="Discounts" EntitySet="Discounts" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Sched__4CA06362" Association="Self.FK__Employees__Sched__4CA06362">
+            <End Role="EmloyeeWorkSchedule" EntitySet="EmloyeeWorkSchedule" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Role___4BAC3F29" Association="Self.FK__Employees__Role___4BAC3F29">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Financial__Emplo__59FA5E80" Association="Self.FK__Financial__Emplo__59FA5E80">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="FinancialStatements" EntitySet="FinancialStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Employee___534D60F1" Association="Self.FK__Sales__Employee___534D60F1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Financial__Sale___5AEE82B9" Association="Self.FK__Financial__Sale___5AEE82B9">
+            <End Role="Sales" EntitySet="Sales" />
+            <End Role="FinancialStatements" EntitySet="FinancialStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LogPass__Role_ID__398D8EEE" Association="Self.FK__LogPass__Role_ID__398D8EEE">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="LogPass" EntitySet="LogPass" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Payment_I__5629CD9C" Association="Self.FK__Sales__Payment_I__5629CD9C">
+            <End Role="PaymentTypes" EntitySet="PaymentTypes" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Perfoma__48CFD27E" Association="Self.FK__Tickets__Perfoma__48CFD27E">
+            <End Role="Perfomances" EntitySet="Perfomances" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reserves__Ticket__4F7CD00D" Association="Self.FK__Reserves__Ticket__4F7CD00D">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Reserves" EntitySet="Reserves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__Ticket_ID__5441852A" Association="Self.FK__Sales__Ticket_ID__5441852A">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="CircusModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discounts">
+            <EntityTypeMapping TypeName="CircusModel.Discounts">
+              <MappingFragment StoreEntitySet="Discounts">
+                <ScalarProperty Name="Discount_ID" ColumnName="Discount_ID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Benefit_ID" ColumnName="Benefit_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmloyeeWorkSchedule">
+            <EntityTypeMapping TypeName="CircusModel.EmloyeeWorkSchedule">
+              <MappingFragment StoreEntitySet="EmloyeeWorkSchedule">
+                <ScalarProperty Name="Schedule_ID" ColumnName="Schedule_ID" />
+                <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+                <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CircusModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="Schedule_ID" ColumnName="Schedule_ID" />
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinancialStatements">
+            <EntityTypeMapping TypeName="CircusModel.FinancialStatements">
+              <MappingFragment StoreEntitySet="FinancialStatements">
+                <ScalarProperty Name="Financial_ID" ColumnName="Financial_ID" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Revenue" ColumnName="Revenue" />
+                <ScalarProperty Name="Sale_ID" ColumnName="Sale_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogPass">
+            <EntityTypeMapping TypeName="CircusModel.LogPass">
+              <MappingFragment StoreEntitySet="LogPass">
+                <ScalarProperty Name="Log_ID" ColumnName="Log_ID" />
+                <ScalarProperty Name="LoginIN" ColumnName="LoginIN" />
+                <ScalarProperty Name="PasswordIN" ColumnName="PasswordIN" />
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTypes">
+            <EntityTypeMapping TypeName="CircusModel.PaymentTypes">
+              <MappingFragment StoreEntitySet="PaymentTypes">
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfomances">
+            <EntityTypeMapping TypeName="CircusModel.Perfomances">
+              <MappingFragment StoreEntitySet="Perfomances">
+                <ScalarProperty Name="Perfomance_ID" ColumnName="Perfomance_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reserves">
+            <EntityTypeMapping TypeName="CircusModel.Reserves">
+              <MappingFragment StoreEntitySet="Reserves">
+                <ScalarProperty Name="Reserve_ID" ColumnName="Reserve_ID" />
+                <ScalarProperty Name="Ticket_ID" ColumnName="Ticket_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="ReserveDate" ColumnName="ReserveDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="CircusModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="CircusModel.Sales">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="Sale_ID" ColumnName="Sale_ID" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Ticket_ID" ColumnName="Ticket_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="Discount_ID" ColumnName="Discount_ID" />
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="CircusModel.Tickets">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="Ticket_ID" ColumnName="Ticket_ID" />
+                <ScalarProperty Name="PlaceNumder" ColumnName="PlaceNumder" />
+                <ScalarProperty Name="TicketStatus" ColumnName="TicketStatus" />
+                <ScalarProperty Name="Perfomance_ID" ColumnName="Perfomance_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesOfBenefits">
+            <EntityTypeMapping TypeName="CircusModel.TypesOfBenefits">
+              <MappingFragment StoreEntitySet="TypesOfBenefits">
+                <ScalarProperty Name="Benefit_ID" ColumnName="Benefit_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

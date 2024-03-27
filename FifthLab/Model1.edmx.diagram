@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c507d253a1d4415906736a5d438d4aa" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="CircusModel.Customers" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.Discounts" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.EmloyeeWorkSchedule" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.Employees" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.FinancialStatements" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.LogPass" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.PaymentTypes" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.Perfomances" Width="1.5" PointX="3.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.Reserves" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.Roles" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.Sales" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.Tickets" Width="1.5" PointX="6" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircusModel.TypesOfBenefits" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="CircusModel.FK__Reserves__Custom__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Sales__Customer___5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Discounts__Benef__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Sales__Discount___571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Employees__Sched__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Employees__Role___4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Financial__Emplo__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Sales__Employee___534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Financial__Sale___5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__LogPass__Role_ID__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Sales__Payment_I__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Tickets__Perfoma__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Reserves__Ticket__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Sales__Ticket_ID__5441852A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
