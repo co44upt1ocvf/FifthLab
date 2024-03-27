@@ -73,31 +73,38 @@ namespace FifthLab
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Login.Text) || string.IsNullOrWhiteSpace(Password.Password))
+            if (Logs.SelectedItem != null)
             {
-                MessageBox.Show("Please enter first and last names.");
-                return;
-            }
+                if (string.IsNullOrWhiteSpace(Login.Text) || string.IsNullOrWhiteSpace(Password.Password))
+                {
+                    MessageBox.Show("Please enter first and last names.");
+                    return;
+                }
 
-            var selected = Logs.SelectedItem as LogPass;
-            selected.LoginIN = Login.Text;
-            selected.PasswordIN = Password.Password;
+                var selected = Logs.SelectedItem as LogPass;
+                selected.LoginIN = Login.Text;
+                selected.PasswordIN = Password.Password;
 
-            if (RoleCbx.SelectedItem != null)
-            {
-                selected.Role_ID = (RoleCbx.SelectedItem as Roles).Role_ID;
+                if (RoleCbx.SelectedItem != null)
+                {
+                    selected.Role_ID = (RoleCbx.SelectedItem as Roles).Role_ID;
+                }
+                else
+                {
+                    MessageBox.Show("Please select a role.");
+                    return;
+                }
+
+                context.SaveChanges();
+                Logs.ItemsSource = context.LogPass.ToList();
+
+                Login.Clear();
+                Password.Clear();
             }
             else
             {
-                MessageBox.Show("Please select a role.");
-                return;
+                MessageBox.Show("Select an employee to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            context.SaveChanges();
-            Logs.ItemsSource = context.LogPass.ToList();
-
-            Login.Clear();
-            Password.Clear();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

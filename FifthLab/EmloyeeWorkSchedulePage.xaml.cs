@@ -135,7 +135,7 @@ namespace FifthLab
             }
             else
             {
-                MessageBox.Show("Select an item to update.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select an item to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

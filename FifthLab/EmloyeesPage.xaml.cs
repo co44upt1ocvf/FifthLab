@@ -90,44 +90,51 @@ namespace FifthLab
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Firstname.Text) || string.IsNullOrWhiteSpace(Lastname.Text))
+            if (Employees.SelectedItem != null)
             {
-                MessageBox.Show("Please enter first and last names.");
-                return;
-            }
+                if (string.IsNullOrWhiteSpace(Firstname.Text) || string.IsNullOrWhiteSpace(Lastname.Text))
+                {
+                    MessageBox.Show("Please enter first and last names.");
+                    return;
+                }
 
-            var selected = Employees.SelectedItem as Employees;
+                var selected = Employees.SelectedItem as Employees;
 
-            selected.Firstname = Firstname.Text;
-            selected.Lastname = Lastname.Text;
-            selected.Middlename = Middlename.Text;
+                selected.Firstname = Firstname.Text;
+                selected.Lastname = Lastname.Text;
+                selected.Middlename = Middlename.Text;
 
-            if (ScheduleCbx.SelectedItem != null)
-            {
-                selected.Schedule_ID = (ScheduleCbx.SelectedItem as EmloyeeWorkSchedule).Schedule_ID;
+                if (ScheduleCbx.SelectedItem != null)
+                {
+                    selected.Schedule_ID = (ScheduleCbx.SelectedItem as EmloyeeWorkSchedule).Schedule_ID;
+                }
+                else
+                {
+                    MessageBox.Show("Please select a schedule.");
+                    return;
+                }
+
+                if (RoleCbx.SelectedItem != null)
+                {
+                    selected.Role_ID = (RoleCbx.SelectedItem as Roles).Role_ID;
+                }
+                else
+                {
+                    MessageBox.Show("Please select a role.");
+                    return;
+                }
+
+                context.SaveChanges();
+                Employees.ItemsSource = context.Employees.ToList();
+
+                Firstname.Clear();
+                Lastname.Clear();
+                Middlename.Clear();
             }
             else
             {
-                MessageBox.Show("Please select a schedule.");
-                return;
+                MessageBox.Show("Select an employee to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            if (RoleCbx.SelectedItem != null)
-            {
-                selected.Role_ID = (RoleCbx.SelectedItem as Roles).Role_ID;
-            }
-            else
-            {
-                MessageBox.Show("Please select a role.");
-                return;
-            }
-
-            context.SaveChanges();
-            Employees.ItemsSource = context.Employees.ToList();
-
-            Firstname.Clear();
-            Lastname.Clear();
-            Middlename.Clear();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

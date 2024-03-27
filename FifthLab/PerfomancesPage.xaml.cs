@@ -89,42 +89,49 @@ namespace FifthLab
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Title.Text) || string.IsNullOrWhiteSpace(Time.Text) || string.IsNullOrWhiteSpace(Cost.Text))
+            if (Perfomances.SelectedItem != null)
             {
-                MessageBox.Show("Please enter first and last names.");
-                return;
-            }
+                if (string.IsNullOrWhiteSpace(Title.Text) || string.IsNullOrWhiteSpace(Time.Text) || string.IsNullOrWhiteSpace(Cost.Text))
+                {
+                    MessageBox.Show("Please enter first and last names.");
+                    return;
+                }
 
-            var selected = Perfomances.SelectedItem as Perfomances;
-            selected.Title = Title.Text;
-            selected.EventDate = DateTime.Now;
+                var selected = Perfomances.SelectedItem as Perfomances;
+                selected.Title = Title.Text;
+                selected.EventDate = DateTime.Now;
 
-            if (InputValidator.IsValidTimeFormat(Time.Text))
-            {
-                selected.EventTime = Time.Text;
+                if (InputValidator.IsValidTimeFormat(Time.Text))
+                {
+                    selected.EventTime = Time.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid time input.");
+                    return;
+                }
+
+                if (InputValidator.IsNumeric(Cost.Text))
+                {
+                    selected.Cost = Convert.ToDecimal(Cost.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid input.");
+                    return;
+                }
+
+                context.SaveChanges();
+                Perfomances.ItemsSource = context.Perfomances.ToList();
+
+                Title.Clear();
+                Time.Clear();
+                Cost.Clear();
             }
             else
             {
-                MessageBox.Show("Invalid time input.");
-                return;
+                MessageBox.Show("Select an employee to change.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            if (InputValidator.IsNumeric(Cost.Text))
-            {
-                selected.Cost = Convert.ToDecimal(Cost.Text);
-            }
-            else
-            {
-                MessageBox.Show("Invalid input.");
-                return;
-            }
-
-            context.SaveChanges();
-            Perfomances.ItemsSource = context.Perfomances.ToList();
-
-            Title.Clear();
-            Time.Clear();
-            Cost.Clear();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
