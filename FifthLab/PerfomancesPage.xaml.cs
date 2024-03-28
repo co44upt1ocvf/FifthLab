@@ -48,9 +48,9 @@ namespace FifthLab
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Title.Text) || string.IsNullOrWhiteSpace(Time.Text) || string.IsNullOrWhiteSpace(Cost.Text))
+            if (string.IsNullOrWhiteSpace(Title.Text) || string.IsNullOrWhiteSpace(Time.Text) || string.IsNullOrWhiteSpace(Cost.Text) || string.IsNullOrWhiteSpace(DateEN.SelectedDate.ToString()))
             {
-                MessageBox.Show("Please enter title, time and cost.");
+                MessageBox.Show("Please enter title, time, cost and date.");
                 return;
             }
 
@@ -91,9 +91,9 @@ namespace FifthLab
         {
             if (Perfomances.SelectedItem != null)
             {
-                if (string.IsNullOrWhiteSpace(Title.Text) || string.IsNullOrWhiteSpace(Time.Text) || string.IsNullOrWhiteSpace(Cost.Text))
+                if (string.IsNullOrWhiteSpace(Title.Text) || string.IsNullOrWhiteSpace(Time.Text) || string.IsNullOrWhiteSpace(Cost.Text) || string.IsNullOrWhiteSpace(DateEN.SelectedDate.ToString()))
                 {
-                    MessageBox.Show("Please enter title, time and cost.");
+                    MessageBox.Show("Please enter title, time, cost and date.");
                     return;
                 }
 

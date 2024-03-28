@@ -14,6 +14,12 @@ namespace FifthLab
     
     public partial class Reserves
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Reserves()
+        {
+            this.Sales = new HashSet<Sales>();
+        }
+    
         public int Reserve_ID { get; set; }
         public Nullable<int> Ticket_ID { get; set; }
         public Nullable<int> Customer_ID { get; set; }
@@ -21,5 +27,7 @@ namespace FifthLab
     
         public virtual Customers Customers { get; set; }
         public virtual Tickets Tickets { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sales> Sales { get; set; }
     }
 }

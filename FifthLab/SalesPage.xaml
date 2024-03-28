@@ -9,6 +9,49 @@
       Title="SalesPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" Background="Gold">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Content="Add" FontSize="15" Click="Button_Click"/>
+                <Button Content="Change" FontSize="15" Click="Button_Click_1" Grid.Column="1" VerticalAlignment="Top"/>
+                <Button Content="Delete" Grid.Column="2" FontSize="15" Click="Button_Click_2"/>
+            </Grid>
+            <ComboBox VerticalAlignment="Top" DisplayMemberPath="Lastname" x:Name="EmployeeCbx"/>
+            <ComboBox Grid.Row="1" VerticalAlignment="Top" DisplayMemberPath="Reserve_ID" x:Name="ReserveCbx"/>
+            <DatePicker x:Name="DateS" Grid.Row="2" SelectedDateChanged="Date"/>
+            <ComboBox Grid.Row="3" VerticalAlignment="Top" DisplayMemberPath="Amount" x:Name="DiscountCbx"/>
+            <ComboBox Grid.Row="4" VerticalAlignment="Top" DisplayMemberPath="Title" x:Name="PaymentCbx"/>
+            <TextBlock Text="Amount:" Grid.Row="5" FontSize="15"/>
+            <TextBox x:Name="Amount" Grid.Row="6" VerticalAlignment="Top" FontSize="15"/>
+        </Grid>
+        <DataGrid x:Name="Sales" AutoGenerateColumns="False" SelectionChanged="Sales_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Sale_ID}" Header="ID"/>
+                <DataGridTextColumn Binding="{Binding Employees.Lastname}" Header="Lastname employee"/>
+                <DataGridTextColumn Binding="{Binding Reserves.Reserve_ID}" Header="Reserve code"/>
+                <DataGridTextColumn Binding="{Binding SaleDate}" Header="Date"/>
+                <DataGridTextColumn Binding="{Binding Discounts.Amount}" Header="Discount"/>
+                <DataGridTextColumn Binding="{Binding PaymentTypes.Title}" Header="Payment Type"/>
+                <DataGridTextColumn Binding="{Binding Amount}" Header="Amount"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

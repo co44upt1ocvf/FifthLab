@@ -18,7 +18,6 @@ namespace FifthLab
         public Tickets()
         {
             this.Reserves = new HashSet<Reserves>();
-            this.Sales = new HashSet<Sales>();
         }
     
         public int Ticket_ID { get; set; }
@@ -29,7 +28,5 @@ namespace FifthLab
         public virtual Perfomances Perfomances { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reserves> Reserves { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sales> Sales { get; set; }
     }
 }

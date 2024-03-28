@@ -49,6 +49,12 @@ namespace FifthLab
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(DateRes.SelectedDate.ToString()))
+            {
+                MessageBox.Show("Please enter date.");
+                return;
+            }
+
             Reserves reserve = new Reserves();
 
             if (TicketCbx.SelectedItem != null)
@@ -82,6 +88,12 @@ namespace FifthLab
         {
             if (Reserves.SelectedItem != null)
             {
+                if (string.IsNullOrWhiteSpace(DateRes.SelectedDate.ToString()))
+                {
+                    MessageBox.Show("Please enter date.");
+                    return;
+                }
+
                 var selected = Reserves.SelectedItem as Reserves;
 
                 if (TicketCbx.SelectedItem != null)
