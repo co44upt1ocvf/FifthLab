@@ -36,7 +36,7 @@
             <TextBlock Text="Time:" Grid.Row="2" FontSize="15"/>
             <TextBox x:Name="Time" Grid.Row="3" VerticalAlignment="Top" FontSize="15" PreviewTextInput="Time_PreviewTextInput"/>
         </Grid>
-        <DataGrid x:Name="Schedule" AutoGenerateColumns="False" SelectionChanged="Schedule_SelectionChanged">
+        <DataGrid x:Name="Schedule" AutoGenerateColumns="False" SelectionChanged="Schedule_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Schedule_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding WorkDate}" Header="Date"/>

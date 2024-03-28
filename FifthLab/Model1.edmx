@@ -123,7 +123,9 @@
           <Property Name="Title" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK__Discounts__Benef__45F365D3">
-          <End Role="TypesOfBenefits" Type="Self.TypesOfBenefits" Multiplicity="0..1" />
+          <End Role="TypesOfBenefits" Type="Self.TypesOfBenefits" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Discounts" Type="Self.Discounts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypesOfBenefits">
@@ -135,7 +137,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Employees__Role___4BAC3F29">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
@@ -147,7 +151,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Employees__Sched__4CA06362">
-          <End Role="EmloyeeWorkSchedule" Type="Self.EmloyeeWorkSchedule" Multiplicity="0..1" />
+          <End Role="EmloyeeWorkSchedule" Type="Self.EmloyeeWorkSchedule" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmloyeeWorkSchedule">
@@ -158,8 +164,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Financial__Emplo__59063A47">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+        <Association Name="FK__Financial__Emplo__60A75C0F">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FinancialStatements" Type="Self.FinancialStatements" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
@@ -170,7 +178,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Financial__Sale___59FA5E80">
+        <Association Name="FK__Financial__Sale___619B8048">
           <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
           <End Role="FinancialStatements" Type="Self.FinancialStatements" Multiplicity="*" />
           <ReferentialConstraint>
@@ -183,7 +191,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__LogPass__Role_ID__398D8EEE">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LogPass" Type="Self.LogPass" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
@@ -195,7 +205,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Reserves__Custom__5070F446">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
@@ -207,7 +219,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Reserves__Ticket__4F7CD00D">
-          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tickets">
@@ -219,7 +233,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sales__Discount___5629CD9C">
-          <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1" />
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Discounts">
@@ -231,7 +247,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sales__Employee___534D60F1">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
@@ -243,7 +261,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sales__Payment_I__5535A963">
-          <End Role="PaymentTypes" Type="Self.PaymentTypes" Multiplicity="0..1" />
+          <End Role="PaymentTypes" Type="Self.PaymentTypes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PaymentTypes">
@@ -255,7 +275,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sales__Reserve_I__5441852A">
-          <End Role="Reserves" Type="Self.Reserves" Multiplicity="0..1" />
+          <End Role="Reserves" Type="Self.Reserves" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Reserves">
@@ -267,7 +289,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Tickets__Perfoma__48CFD27E">
-          <End Role="Perfomances" Type="Self.Perfomances" Multiplicity="0..1" />
+          <End Role="Perfomances" Type="Self.Perfomances" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Perfomances">
@@ -304,11 +328,11 @@
             <End Role="EmloyeeWorkSchedule" EntitySet="EmloyeeWorkSchedule" />
             <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__Financial__Emplo__59063A47" Association="Self.FK__Financial__Emplo__59063A47">
+          <AssociationSet Name="FK__Financial__Emplo__60A75C0F" Association="Self.FK__Financial__Emplo__60A75C0F">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="FinancialStatements" EntitySet="FinancialStatements" />
           </AssociationSet>
-          <AssociationSet Name="FK__Financial__Sale___59FA5E80" Association="Self.FK__Financial__Sale___59FA5E80">
+          <AssociationSet Name="FK__Financial__Sale___619B8048" Association="Self.FK__Financial__Sale___619B8048">
             <End Role="Sales" EntitySet="Sales" />
             <End Role="FinancialStatements" EntitySet="FinancialStatements" />
           </AssociationSet>
@@ -392,7 +416,7 @@
           <Property Name="Role_ID" Type="Int32" />
           <NavigationProperty Name="EmloyeeWorkSchedule" Relationship="Self.FK__Employees__Sched__4CA06362" FromRole="Employees" ToRole="EmloyeeWorkSchedule" />
           <NavigationProperty Name="Roles" Relationship="Self.FK__Employees__Role___4BAC3F29" FromRole="Employees" ToRole="Roles" />
-          <NavigationProperty Name="FinancialStatements" Relationship="Self.FK__Financial__Emplo__59063A47" FromRole="Employees" ToRole="FinancialStatements" />
+          <NavigationProperty Name="FinancialStatements" Relationship="Self.FK__Financial__Emplo__60A75C0F" FromRole="Employees" ToRole="FinancialStatements" />
           <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__Employee___534D60F1" FromRole="Employees" ToRole="Sales" />
         </EntityType>
         <EntityType Name="FinancialStatements">
@@ -404,8 +428,8 @@
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Revenue" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Sale_ID" Type="Int32" />
-          <NavigationProperty Name="Employees" Relationship="Self.FK__Financial__Emplo__59063A47" FromRole="FinancialStatements" ToRole="Employees" />
-          <NavigationProperty Name="Sales" Relationship="Self.FK__Financial__Sale___59FA5E80" FromRole="FinancialStatements" ToRole="Sales" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Financial__Emplo__60A75C0F" FromRole="FinancialStatements" ToRole="Employees" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Financial__Sale___619B8048" FromRole="FinancialStatements" ToRole="Sales" />
         </EntityType>
         <EntityType Name="LogPass">
           <Key>
@@ -470,7 +494,7 @@
           <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <NavigationProperty Name="Discounts" Relationship="Self.FK__Sales__Discount___5629CD9C" FromRole="Sales" ToRole="Discounts" />
           <NavigationProperty Name="Employees" Relationship="Self.FK__Sales__Employee___534D60F1" FromRole="Sales" ToRole="Employees" />
-          <NavigationProperty Name="FinancialStatements" Relationship="Self.FK__Financial__Sale___59FA5E80" FromRole="Sales" ToRole="FinancialStatements" />
+          <NavigationProperty Name="FinancialStatements" Relationship="Self.FK__Financial__Sale___619B8048" FromRole="Sales" ToRole="FinancialStatements" />
           <NavigationProperty Name="PaymentTypes" Relationship="Self.FK__Sales__Payment_I__5535A963" FromRole="Sales" ToRole="PaymentTypes" />
           <NavigationProperty Name="Reserves" Relationship="Self.FK__Sales__Reserve_I__5441852A" FromRole="Sales" ToRole="Reserves" />
         </EntityType>
@@ -494,7 +518,9 @@
           <NavigationProperty Name="Discounts" Relationship="Self.FK__Discounts__Benef__45F365D3" FromRole="TypesOfBenefits" ToRole="Discounts" />
         </EntityType>
         <Association Name="FK__Reserves__Custom__5070F446">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
@@ -506,7 +532,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Discounts__Benef__45F365D3">
-          <End Role="TypesOfBenefits" Type="Self.TypesOfBenefits" Multiplicity="0..1" />
+          <End Role="TypesOfBenefits" Type="Self.TypesOfBenefits" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Discounts" Type="Self.Discounts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypesOfBenefits">
@@ -518,7 +546,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sales__Discount___5629CD9C">
-          <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1" />
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Discounts">
@@ -530,7 +560,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Employees__Sched__4CA06362">
-          <End Role="EmloyeeWorkSchedule" Type="Self.EmloyeeWorkSchedule" Multiplicity="0..1" />
+          <End Role="EmloyeeWorkSchedule" Type="Self.EmloyeeWorkSchedule" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmloyeeWorkSchedule">
@@ -542,7 +574,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Employees__Role___4BAC3F29">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
@@ -553,8 +587,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Financial__Emplo__59063A47">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+        <Association Name="FK__Financial__Emplo__60A75C0F">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FinancialStatements" Type="Self.FinancialStatements" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
@@ -566,7 +602,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sales__Employee___534D60F1">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
@@ -577,7 +615,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Financial__Sale___59FA5E80">
+        <Association Name="FK__Financial__Sale___619B8048">
           <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
           <End Role="FinancialStatements" Type="Self.FinancialStatements" Multiplicity="*" />
           <ReferentialConstraint>
@@ -590,7 +628,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__LogPass__Role_ID__398D8EEE">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LogPass" Type="Self.LogPass" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
@@ -602,7 +642,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sales__Payment_I__5535A963">
-          <End Role="PaymentTypes" Type="Self.PaymentTypes" Multiplicity="0..1" />
+          <End Role="PaymentTypes" Type="Self.PaymentTypes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PaymentTypes">
@@ -614,7 +656,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Tickets__Perfoma__48CFD27E">
-          <End Role="Perfomances" Type="Self.Perfomances" Multiplicity="0..1" />
+          <End Role="Perfomances" Type="Self.Perfomances" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Perfomances">
@@ -626,7 +670,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Reserves__Ticket__4F7CD00D">
-          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tickets">
@@ -638,7 +684,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sales__Reserve_I__5441852A">
-          <End Role="Reserves" Type="Self.Reserves" Multiplicity="0..1" />
+          <End Role="Reserves" Type="Self.Reserves" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Reserves">
@@ -683,7 +731,7 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__Financial__Emplo__59063A47" Association="Self.FK__Financial__Emplo__59063A47">
+          <AssociationSet Name="FK__Financial__Emplo__60A75C0F" Association="Self.FK__Financial__Emplo__60A75C0F">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="FinancialStatements" EntitySet="FinancialStatements" />
           </AssociationSet>
@@ -691,7 +739,7 @@
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Sales" EntitySet="Sales" />
           </AssociationSet>
-          <AssociationSet Name="FK__Financial__Sale___59FA5E80" Association="Self.FK__Financial__Sale___59FA5E80">
+          <AssociationSet Name="FK__Financial__Sale___619B8048" Association="Self.FK__Financial__Sale___619B8048">
             <End Role="Sales" EntitySet="Sales" />
             <End Role="FinancialStatements" EntitySet="FinancialStatements" />
           </AssociationSet>

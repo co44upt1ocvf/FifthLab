@@ -40,7 +40,7 @@
             <TextBlock Text="Role:" Grid.Row="4" FontSize="15"/>
             <ComboBox Grid.Row="5" VerticalAlignment="Top" DisplayMemberPath="Title" x:Name="RoleCbx"/>
         </Grid>
-        <DataGrid x:Name="Logs" AutoGenerateColumns="False" SelectionChanged="Logs_SelectionChanged">
+        <DataGrid x:Name="Logs" AutoGenerateColumns="False" SelectionChanged="Logs_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Log_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding LoginIN}" Header="Firstname"/>

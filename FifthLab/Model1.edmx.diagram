@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f20777ce3ffa488ca07fb4dbeb28bab8" Name="Diagram1" ZoomLevel="344">
+      <Diagram DiagramId="95defaa54d2f48239ab25dc20bd4dde6" Name="Diagram1">
         <EntityTypeShape EntityType="CircusModel.Customers" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CircusModel.Discounts" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CircusModel.EmloyeeWorkSchedule" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
@@ -23,9 +23,9 @@
         <AssociationConnector Association="CircusModel.FK__Sales__Discount___5629CD9C" ManuallyRouted="false" />
         <AssociationConnector Association="CircusModel.FK__Employees__Sched__4CA06362" ManuallyRouted="false" />
         <AssociationConnector Association="CircusModel.FK__Employees__Role___4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="CircusModel.FK__Financial__Emplo__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Financial__Emplo__60A75C0F" ManuallyRouted="false" />
         <AssociationConnector Association="CircusModel.FK__Sales__Employee___534D60F1" ManuallyRouted="false" />
-        <AssociationConnector Association="CircusModel.FK__Financial__Sale___59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="CircusModel.FK__Financial__Sale___619B8048" ManuallyRouted="false" />
         <AssociationConnector Association="CircusModel.FK__LogPass__Role_ID__398D8EEE" ManuallyRouted="false" />
         <AssociationConnector Association="CircusModel.FK__Sales__Payment_I__5535A963" ManuallyRouted="false" />
         <AssociationConnector Association="CircusModel.FK__Tickets__Perfoma__48CFD27E" ManuallyRouted="false" />

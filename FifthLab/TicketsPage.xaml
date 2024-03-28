@@ -40,7 +40,7 @@
             <TextBlock Text="Role:" Grid.Row="4" FontSize="15"/>
             <ComboBox Grid.Row="5" VerticalAlignment="Top" DisplayMemberPath="Title" x:Name="PerfomanceCbx"/>
         </Grid>
-        <DataGrid x:Name="Tickets" AutoGenerateColumns="False" SelectionChanged="Tickets_SelectionChanged" >
+        <DataGrid x:Name="Tickets" AutoGenerateColumns="False" SelectionChanged="Tickets_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Ticket_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding PlaceNumder}" Header="Place"/>

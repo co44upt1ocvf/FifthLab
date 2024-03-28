@@ -40,7 +40,7 @@
             <TextBlock Text="Revenue:" Grid.Row="4" FontSize="15"/>
             <TextBox x:Name="Revenue" Grid.Row="5" VerticalAlignment="Top" FontSize="15"/>
         </Grid>
-        <DataGrid x:Name="Statements" AutoGenerateColumns="False" SelectionChanged="Statements_SelectionChanged">
+        <DataGrid x:Name="Statements" AutoGenerateColumns="False" SelectionChanged="Statements_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Financial_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Employees.Lastname}" Header="Lastname employee"/>

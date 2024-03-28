@@ -36,13 +36,13 @@
             </Grid>
             <TextBlock Text="Title:" FontSize="15"/>
             <TextBox x:Name="Title" Grid.Row="1" VerticalAlignment="Top" FontSize="15" PreviewTextInput="TextBox_PreviewTextInput"/>
-            <DatePicker x:Name="DateEN" Grid.Row="2" SelectedDateChanged="Date"/>
+            <DatePicker x:Name="DateEN" Grid.Row="2" SelectedDateChanged="Date" DisplayDateStart="2000-01-01"/>
             <TextBlock Text="Time:" Grid.Row="3" FontSize="15"/>
             <TextBox x:Name="Time" Grid.Row="4" FontSize="15"/>
             <TextBlock Text="Cost:" Grid.Row="5" FontSize="15"/>
             <TextBox x:Name="Cost" Grid.Row="6" VerticalAlignment="Top" FontSize="15" />
         </Grid>
-        <DataGrid x:Name="Perfomances" AutoGenerateColumns="False" SelectionChanged="Perfomances_SelectionChanged">
+        <DataGrid x:Name="Perfomances" AutoGenerateColumns="False" SelectionChanged="Perfomances_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Perfomance_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Titlt"/>

@@ -44,7 +44,7 @@
             <TextBlock Text="Role:" Grid.Row="6" FontSize="15"/>
             <ComboBox Grid.Row="7" VerticalAlignment="Top" DisplayMemberPath="Title" x:Name="RoleCbx"/>
         </Grid>
-        <DataGrid x:Name="Employees" AutoGenerateColumns="False" SelectionChanged="Employees_SelectionChanged">
+        <DataGrid x:Name="Employees" AutoGenerateColumns="False" SelectionChanged="Employees_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Employee_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Firstname}" Header="Firstname"/>

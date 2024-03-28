@@ -32,7 +32,7 @@
             <TextBlock Text="Role name:" FontSize="15"/>
             <TextBox x:Name="RoleName" Grid.Row="1" VerticalAlignment="Top" FontSize="15" PreviewTextInput="TextBox_PreviewTextInput"/>
         </Grid>
-        <DataGrid x:Name="Roles" AutoGenerateColumns="False" SelectionChanged="Roles_SelectionChanged">
+        <DataGrid x:Name="Roles" AutoGenerateColumns="False" SelectionChanged="Roles_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Role_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Title"/>

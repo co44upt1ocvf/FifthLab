@@ -36,9 +36,9 @@
             <ComboBox Grid.Row="1" VerticalAlignment="Top" DisplayMemberPath="Ticket_ID" x:Name="TicketCbx"/>
             <TextBlock Text="Email:" Grid.Row="2" FontSize="15"/>
             <ComboBox Grid.Row="3" VerticalAlignment="Top" DisplayMemberPath="Email" x:Name="CustomerCbx"/>
-            <DatePicker x:Name="DateRes" Grid.Row="4" SelectedDateChanged="Date"/>
+            <DatePicker x:Name="DateRes" Grid.Row="4" SelectedDateChanged="Date" DisplayDateStart="2000-01-01"/>
         </Grid>
-        <DataGrid x:Name="Reserves" AutoGenerateColumns="False" SelectionChanged="Reserves_SelectionChanged" >
+        <DataGrid x:Name="Reserves" AutoGenerateColumns="False" SelectionChanged="Reserves_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Reserve_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Tickets.Ticket_ID}" Header="Ticket ID"/>

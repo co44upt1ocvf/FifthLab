@@ -36,7 +36,7 @@
             <TextBlock Text="Schedule:" Grid.Row="2" FontSize="15"/>
             <ComboBox Grid.Row="3" VerticalAlignment="Top" DisplayMemberPath="Title" x:Name="BenefitCbx"/>
         </Grid>
-        <DataGrid x:Name="Discounts" AutoGenerateColumns="False" SelectionChanged="Discounts_SelectionChanged">
+        <DataGrid x:Name="Discounts" AutoGenerateColumns="False" SelectionChanged="Discounts_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Discount_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Amount}" Header="Amount"/>

@@ -42,7 +42,7 @@
             <TextBlock Text="Email:" Grid.Row="4" FontSize="15"/>
             <TextBox x:Name="Email" Grid.Row="5" VerticalAlignment="Top" FontSize="15"/>
         </Grid>
-        <DataGrid x:Name="Customers" AutoGenerateColumns="False" SelectionChanged="Customers_SelectionChanged">
+        <DataGrid x:Name="Customers" AutoGenerateColumns="False" SelectionChanged="Customers_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Customer_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Firstname}" Header="Firstname"/>

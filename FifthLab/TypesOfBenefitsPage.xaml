@@ -32,7 +32,7 @@
             <TextBlock Text="Benefit:" FontSize="15"/>
             <TextBox x:Name="Benefit" Grid.Row="1" VerticalAlignment="Top" FontSize="15" PreviewTextInput="TextBox_PreviewTextInput"/>
         </Grid>
-        <DataGrid x:Name="Benefits" AutoGenerateColumns="False" SelectionChanged="Benefits_SelectionChanged">
+        <DataGrid x:Name="Benefits" AutoGenerateColumns="False" SelectionChanged="Benefits_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Benefit_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Title"/>

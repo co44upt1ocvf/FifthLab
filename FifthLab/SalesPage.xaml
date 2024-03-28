@@ -36,13 +36,13 @@
             </Grid>
             <ComboBox VerticalAlignment="Top" DisplayMemberPath="Lastname" x:Name="EmployeeCbx"/>
             <ComboBox Grid.Row="1" VerticalAlignment="Top" DisplayMemberPath="Reserve_ID" x:Name="ReserveCbx"/>
-            <DatePicker x:Name="DateS" Grid.Row="2" SelectedDateChanged="Date"/>
+            <DatePicker x:Name="DateS" Grid.Row="2" SelectedDateChanged="Date" DisplayDateStart="2000-01-01"/>
             <ComboBox Grid.Row="3" VerticalAlignment="Top" DisplayMemberPath="Amount" x:Name="DiscountCbx"/>
             <ComboBox Grid.Row="4" VerticalAlignment="Top" DisplayMemberPath="Title" x:Name="PaymentCbx"/>
             <TextBlock Text="Amount:" Grid.Row="5" FontSize="15"/>
             <TextBox x:Name="Amount" Grid.Row="6" VerticalAlignment="Top" FontSize="15"/>
         </Grid>
-        <DataGrid x:Name="Sales" AutoGenerateColumns="False" SelectionChanged="Sales_SelectionChanged">
+        <DataGrid x:Name="Sales" AutoGenerateColumns="False" SelectionChanged="Sales_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Sale_ID}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Employees.Lastname}" Header="Lastname employee"/>
